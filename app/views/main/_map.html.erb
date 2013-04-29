@@ -1,0 +1,48 @@
+<div id="map"></div>
+
+<script>
+$(document).ready(function() {
+var currentLocation = [geoip_latitude(), geoip_longitude()];
+
+$('#map').mapSvg({
+    source:        '../assets/maps/world_high.svg',    // Path to SVG map
+    colors: {
+                base: "#E1F1F1",
+                background: "#eeeeee",
+                hover: "#548eac",
+                selected: "#065A85",
+                disabled: "#ffffff",
+                stroke: "#7eadc0"
+            },
+    disableAll:     true,
+
+  marks:     [
+            { c: currentLocation,
+             tooltip: 'You are here!'
+                +geoip_city()+''
+                +geoip_country_name()+''
+                +'Coordinates: '+currentLocation
+            },
+            <% @items.each do |item| %>
+
+	            { c: [<%= item.latitude %>,<%= item.longitude %>],
+	             tooltip: 'Bla bla bla',
+	             attrs: {
+	             	<% v = link_to 'Show', item %>
+	                href: 'main/1',
+                    <% markers = ['../assets/markers/pin1_black.png','../assets/markers/pin1_blue.png', '../assets/markers/pin1_green.png', '../assets/markers/pin1_grey.png', '../assets/markers/pin1_orange.png', '../assets/markers/pin1_purple.png', '../assets/markers/pin1_red.png', '../assets/markers/pin1_violet.png', '../assets/markers/pin1_yellow.png',   ] %>
+	                src:  '<%= markers.sample %>'
+	             }
+	            },
+
+			<% end %> 
+                   ],
+    tooltipsMode:    'custom',
+    zoom: true,
+    pan: true,
+    responsive: true
+});
+
+
+});
+</script>

@@ -1,0 +1,10 @@
+<h1><%= @items.first.title %></h1>
+
+<%= render 'map' %>
+
+<% @items.each do |item| %>
+
+		<h3><%= item.title %></h3>
+		<p><%= item.body.html_safe %></p>
+
+<% end %>

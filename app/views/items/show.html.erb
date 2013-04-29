@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+
+<p>
+  <b>Title:</b>
+  <%= @item.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @item.body %>
+</p>
+
+<p>
+  <b>Latitude:</b>
+  <%= @item.latitude %>
+</p>
+
+<p>
+  <b>Longitude:</b>
+  <%= @item.longitude %>
+</p>
+
+<p>
+	<b>Avatar</b>
+	<%= image_tag @item.avatar.url %>
+</p>
+
+<%= link_to 'Edit', edit_item_path(@item) %> |
+<%= link_to 'Back', items_path %>
