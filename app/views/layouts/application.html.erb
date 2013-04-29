@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title><%= yield(:title) %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= auto_discovery_link_tag(:rss, items_path(:rss)) %>
+  <script type="text/javascript" src="http://j.maxmind.com/app/geoip.js"></script>
+</head>
+<body>
+	<header class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar-inner">
+
+			<a class="brand" href="/" style="margin-left:20px;">Title</a>
+			<nav>
+				<ul class="nav pull-right">
+					<li><a href="">Home</a></li>
+					<% if logged_in? %>
+						<li>
+							<%= link_to "Logout (#{current_user.username})",logout_path, method: 'delete' %>
+						</li>
+					<% else %>
+						<li>
+							<%= link_to 'Register', register_path %>
+						</li>
+						<li>
+							<%= link_to 'Login', login_path %>
+						</li>
+					<% end %>			
+					
+					<li><a href="">Contact</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header><!-- end header -->
+
+	<div class="container" style="margin-top: 80px">
+		<%= yield %>
+	</div>
+</body>
+</html>
