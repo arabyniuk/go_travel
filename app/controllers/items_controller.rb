@@ -43,16 +43,13 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
-
-    respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render json: @item, status: :created, location: @item }
-      else
-        format.html { render action: "new" }
-        format.json { render json: @item.errors, status: :unprocessable_entity }
-      end
+    @item = current_user.items.build(params[:item])
+    if @item.save
+      flash[:success] = 'You item has been posted!'
+      redirect_to @item
+    else
+      @items = Item.unsolved(params)
+      render 'index'
     end
   end
 
