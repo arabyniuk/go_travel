@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @items }
       format.xml { render xml: @items }
-      format.rss #index.rss.builder
+      format.atom #index.rss.builder
     end
   end
 
