@@ -2,7 +2,9 @@ Indie::Application.routes.draw do
 
   root to: 'main#index'
 
-    resources :items
+    resources :items do 
+      resources :comments, only: [:create]
+    end
 
     resources :main
 

@@ -27,6 +27,23 @@
 	<%= image_tag @item.avatar.url %>
 </p>
 
+<div id="comments">
+  <h2>Comments</h2>
+  <% if @item.comments.any? %>
+      <ul>
+        <%= render @item.comments %>
+      </ul>
+  <% else %>
+      <p>This item has not been answered yet.</p>
+  <% end %>
+</div>
+
+<div id="post-comment">
+
+  <%= render "comments/comment_form" %>
+
+</div>
+
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

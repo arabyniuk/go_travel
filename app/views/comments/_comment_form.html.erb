@@ -1,0 +1,19 @@
+<%= form_for([@item, @comment]) do |f| %>
+	<%= render "common/form_errors", object: @comment %>
+	<p>
+		<%= f.label :name, 'Name:*' %>
+		<%= f.text_field :name %>
+	</p>
+
+	<p>
+		<%= f.label :url, 'Your site' %>
+		<%= f.text_field :url %>
+	</p>
+	<p>
+		<%= f.label :body, 'Text:*' %>
+		<%= f.text_area :body %>
+	</p>
+	<p>
+		<%= f.submit %>
+	</p>
+<% end %>
