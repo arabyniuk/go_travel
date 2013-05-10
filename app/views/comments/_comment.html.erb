@@ -1,3 +1,9 @@
 <li>
-	<%= comment.body %> - by <%= comment.name %>
+	<% if comment.url.length > 3 %>
+		<strong><%= link_to comment.name, comment.url %></strong>
+	<% else %>
+		<strong><%= comment.name %></strong>
+	<% end %>
+	
+	<blockquote><%= comment.body %></blockquote>
 </li>

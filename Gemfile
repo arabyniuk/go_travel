@@ -3,7 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'bootstrap-sass', '2.1'
 gem 'bcrypt-ruby', '3.0.1'
-
+gem 'activeadmin', :git => 'git://github.com/gregbell/active_admin.git'
+gem "meta_search", '>= 1.1.0.pre'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
@@ -25,7 +26,9 @@ end
 gem 'jquery-rails'
 gem 'tinymce-rails'
 gem 'simple_form'
-gem 'paperclip'
+gem 'carrierwave', '>= 0.5.3'
+gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+ 
 
 
 group :production do

@@ -18,8 +18,6 @@ class ItemsController < ApplicationController
   def show
     @item = Item.find(params[:id])
 
-    @comment = Comment.new
-
   end
 
   # GET /items/new
@@ -43,10 +41,11 @@ class ItemsController < ApplicationController
   def create
     @item = current_user.items.build(params[:item])
     if @item.save
+      #ItemsMailer.item_created(@item).deliver
       flash[:success] = 'You item has been posted!'
       redirect_to @item
     else
-      @items = Item.unsolved(params)
+     @items = Item.unsolved(params)
       render 'index'
     end
   end

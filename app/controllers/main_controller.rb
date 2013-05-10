@@ -6,5 +6,7 @@ class MainController < ApplicationController
   def show
   	@item = Item.find(params[:id])
   	@items = Item.all
+
+  	@comment = Comment.new
   end
 end

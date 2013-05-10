@@ -22,28 +22,13 @@
   <%= @item.longitude %>
 </p>
 
-<p>
-	<b>Avatar</b>
-	<%= image_tag @item.avatar.url %>
-</p>
-
-<div id="comments">
-  <h2>Comments</h2>
-  <% if @item.comments.any? %>
-      <ul>
-        <%= render @item.comments %>
-      </ul>
-  <% else %>
-      <p>This item has not been answered yet.</p>
+<ul>
+  <% for attachment in @item.attachments %>
+    <li>
+    <%= attachment.description %> - <%= link_to("Download", attachment.file_url) %>
+    </li>
   <% end %>
-</div>
-
-<div id="post-comment">
-
-  <%= render "comments/comment_form" %>
-
-</div>
-
+</ul>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

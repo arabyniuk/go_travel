@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
 		if @comment.save
 			flash[:success]	= "You comment has been posted!"
-			redirect_to @item
+			redirect_to :back
 		else
 			render 'item/show'
 		end
