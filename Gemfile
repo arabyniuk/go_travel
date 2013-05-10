@@ -28,8 +28,13 @@ gem 'tinymce-rails'
 gem 'simple_form'
 gem 'carrierwave', '>= 0.5.3'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
+gem 'haml-rails'
+gem 'html2haml'
  
-
+group :development do
+	gem "hpricot"
+	gem "ruby_parser"
+end
 
 group :production do
   gem 'pg', '0.15.1'

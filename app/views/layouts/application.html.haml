@@ -1,0 +1,41 @@
+!!!
+%html
+  %head
+    %title= yield(:title)
+    = stylesheet_link_tag    "application", :media => "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    = auto_discovery_link_tag(:rss, items_path(:rss))
+    %script{:src => "http://j.maxmind.com/app/geoip.js", :type => "text/javascript"}
+  %body
+    %header.navbar.navbar-fixed-top.navbar-inverse
+      .navbar-inner
+        %a.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse"}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        %a.brand{:href => "/"} Title
+        .nav-collapse.collapse
+          %nav
+            %ul.nav.pull-right
+              %li
+                %a{:href => ""} Home
+              - if logged_in?
+                %li
+                  = link_to "Logout (#{current_user.username})",logout_path, method: 'delete'
+              - else
+                %li
+                  = link_to 'Register', register_path
+                %li
+                  = link_to 'Login', login_path
+              %li
+                %a{:href => ""} Contact
+    / end header
+    .container{:style => "margin-bottom: 60px;"}
+      = yield
+    %footer.navbar.navbar-fixed-bottom.footer
+      .navbar-inner
+        %nav
+          %ul.nav.pull-right
+            %li
+              @
