@@ -1,34 +1,47 @@
+<% provide(:title, "Traveling to #{@item.title}") %>
 <p id="notice"><%= notice %></p>
 
+<% if @item.attachments.any? %>
 
+<ul class="thumbnails">
 
-<p>
-  <b>Title:</b>
-  <%= @item.title %>
-</p>
-
-<p>
-  <b>Body:</b>
-  <%= @item.body %>
-</p>
-
-<p>
-  <b>Latitude:</b>
-  <%= @item.latitude %>
-</p>
-
-<p>
-  <b>Longitude:</b>
-  <%= @item.longitude %>
-</p>
-
-<ul>
   <% for attachment in @item.attachments %>
-    <li>
-    <%= attachment.description %> - <%= link_to("Download", attachment.file_url) %>
-    </li>
+    <li class="span4" style="text-align: center;">
+    <div class="thumbnail">
+       <%= image_tag(attachment.file_url, :size=> "300x200", :alt => attachment.description) %>      
+      <p><%= attachment.description %></p>
+    </div>
+  </li>  
   <% end %>
-</ul>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+</ul>
+<% else%>
+
+<% end %>
+<br>
+
+<p> 
+  <%= @item.body.html_safe %>
+</p>
+<br>
+<hr>
+
+<div id="comments">
+
+  <h2>Comments:</h2>
+
+  <% if @item.comments.any? %>
+      <ul>
+        <%= render @item.comments %>
+      </ul>
+  <% else %>
+      <p>No one has commented yet.</p>
+  <% end %>
+</div>
+
+<div id="post-comment">
+  <br>
+  <hr>
+  <h2>Send us your comments on this article:</h2>
+  <%= render "comments/comment_form" %>
+</div>

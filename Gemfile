@@ -9,6 +9,7 @@ gem "meta_search", '>= 1.1.0.pre'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 group :development, :test do
 	gem 'sqlite3'
+	gem 'rspec-rails', '2.10.0'
 end
 
 # Gems used only for assets and not required
@@ -29,7 +30,9 @@ gem 'simple_form'
 gem 'carrierwave', '>= 0.5.3'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
  
-
+group :test do 
+	gem 'capybara', '1.1.2'
+end
 
 group :production do
   gem 'pg', '0.15.1'
