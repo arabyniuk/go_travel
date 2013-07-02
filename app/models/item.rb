@@ -8,5 +8,7 @@ class Item < ActiveRecord::Base
 
   accepts_nested_attributes_for :attachments
 
+  validates :title, presence: true
+
   scope :unreleased, where( :created_at => nil )
 end

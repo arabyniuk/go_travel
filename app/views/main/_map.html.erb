@@ -16,6 +16,7 @@ $('#map').mapSvg({
             },
     disableAll:     true,
 
+
   marks:     [
             { c: currentLocation,
              tooltip: 'You are here!'
@@ -26,10 +27,9 @@ $('#map').mapSvg({
             <% @items.each do |item| %>
 
 	            { c: [<%= item.latitude %>,<%= item.longitude %>],
-	             tooltip: 'Bla bla bla',
-	             attrs: {
-	             	<% v = link_to 'Show', item %>
-	                href: 'main/1',
+	             tooltip: '<%= item.title %>',
+	             attrs: {	             	
+	                href: '<%= url_for(item) %>',
                     <% markers = ['../assets/markers/pin1_black.png','../assets/markers/pin1_blue.png', '../assets/markers/pin1_green.png', '../assets/markers/pin1_grey.png', '../assets/markers/pin1_orange.png', '../assets/markers/pin1_purple.png', '../assets/markers/pin1_red.png', '../assets/markers/pin1_violet.png', '../assets/markers/pin1_yellow.png',   ] %>
 	                src:  '<%= markers.sample %>'
 	             }
@@ -37,9 +37,11 @@ $('#map').mapSvg({
 
 			<% end %> 
                    ],
+    colors: {base: '#cccccc', stroke: '#aaaaaa', selected: 10},
     tooltipsMode:    'custom',
     zoom: true,
     pan: true,
+    width: 1170,
     responsive: true
 });
 
