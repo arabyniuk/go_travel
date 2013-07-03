@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
 
-  attr_accessible :body, :latitude, :longitude, :title, :user_id, :attachments_attributes
+  attr_accessible :body, :latitude, :longitude, :title, :published_at, :user_id, :attachments_attributes
 
   belongs_to :user
   has_many :comments

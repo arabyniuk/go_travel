@@ -20,6 +20,10 @@ Indie::Application.routes.draw do
   match '/register', to: 'users#new'
     match '/login', to: 'sessions#new'
       match '/logout', to: 'sessions#destroy', via: :delete
+
+      match 'contact' => 'contact#new', :as => 'contact', :via => :get
+      match 'contact' => 'contact#create', :as => 'contact', :via => :post
+      
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

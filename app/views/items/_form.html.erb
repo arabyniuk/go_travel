@@ -22,6 +22,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :published_at %><br />
+    <%= f.date_select :published_at, :order => [:day, :month, :year]  %>
+  </div>
+
+  <div class="field">
     <%= f.label :latitude %><br />
     <%= f.text_field :latitude %>
   </div>

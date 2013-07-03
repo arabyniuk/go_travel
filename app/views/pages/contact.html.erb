@@ -1,2 +1,33 @@
-<h1>Contact</h1>
-<p>Find me in app/views/pages/contact.html.erb</p>
+<% provide(:title, "Contact") %>
+<br>
+<br>
+<br>
+<div class="row">
+	<div class="span9">
+		<form class="form-horizontal">
+		  <div class="control-group">
+		    <label class="control-label" for="inputSubject">Subject*:</label>
+		    <div class="controls">
+		      <input type="text" id="inputSubj" placeholder="your subject">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputEmail">Email:</label>
+		    <div class="controls">
+		      <input type="text" id="inputEmail" placeholder="your email">
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="inputMessage">Message*:</label>
+		    <div class="controls">     
+		      <textarea name="inputMessage" id="inputMessage" cols="40" rows="15" placeholder="your message"></textarea>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <div class="controls">
+		      <button type="submit" class="btn">Send</button>
+		    </div>
+		  </div>
+		</form>	
+	</div>
+</div>
