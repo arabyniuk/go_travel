@@ -27,9 +27,10 @@ end
 gem 'jquery-rails'
 gem 'tinymce-rails'
 gem 'simple_form'
-gem 'carrierwave', '>= 0.5.3'
+gem 'carrierwave'
 gem 'nested_form', :git => 'git://github.com/ryanb/nested_form.git'
- 
+gem 'fog' 
+
 group :test do 
 	gem 'capybara', '1.1.2'
 end
