@@ -16,7 +16,7 @@
 
   <tr>
     <td><b><%= item.title %></b></td>
-    <td><%= item.body.html_safe %></td>
+    <td><%= truncate(item.body, length: 200) %></td>
     <td><%= item.published_at %></td>
     <td><%= item.latitude %></td>
     <td><%= item.longitude %></td>
